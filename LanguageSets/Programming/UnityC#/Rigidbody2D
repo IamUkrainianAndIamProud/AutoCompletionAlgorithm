@@ -1,0 +1,7 @@
+.AddForce();
+
+.gravityScale
+.velocity
+.position
+.mass
+.bodyType
