@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Language {
     private WordsToComplete wordsToComplete = new WordsToComplete();
 
@@ -8,5 +10,9 @@ public class Language {
 
     public WordsToComplete getWordsToComplete() {
         return wordsToComplete;
+    }
+
+    public List<String> getCompletionWords() {
+        return wordsToComplete.getCompletionWords();
     }
 }

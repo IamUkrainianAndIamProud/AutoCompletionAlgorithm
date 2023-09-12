@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.List;
 import java.util.Scanner;
 
 
@@ -13,39 +12,19 @@ public class Main {
         Language english = new Language();
 
         setupLanguage(english, "LanguageSets/EnglishWords.txt");
+//      Setup file for source.
+        File demoFile = new File("text.txt");
+//      Setup AutoCompletion.
+        AutoCompletion autoCompletion = new AutoCompletion(english, demoFile);
 //      Logics
-        autoComplete(scanner, filter, english.getWordsToComplete());
-    }
-
-    private static void autoComplete(Scanner scanner, Filter filter, WordsToComplete wordsToComplete) {
-        List<String> filteredWords;
-
 
         while (true) {
-            try {
-                filteredWords = filter.find(scanner.next(), wordsToComplete.getCompletionWords());
-                if (filteredWords.size() >= 16) {
-                    System.out.print("There are: " + filteredWords.size() +
-                            " answers to your filtered word.\n\t\tDo you want to continue?(yes / no)\n\t\t\t -->");
-                    if (scanner.next() == "yes") {
-                        for (int i = 0; i < filteredWords.size() + 1; i++) {
-                            System.out.println(filteredWords.get(i) + "-->" + i);
-                        }
-                        System.out.println(filteredWords.get(scanner.nextInt() - 1));
-                    } else {
-                        continue;
-                    }
-                } else {
-                    for (int i = 0; i < filteredWords.size(); i++) {
-                        System.out.println(filteredWords.get(i) + "-->" + i);
-                    }
-                    System.out.println(filteredWords.get(scanner.nextInt()));
-                }
-            } catch (Exception e) {
-                System.out.println("");
-            }
+//            Set auto-completion logics here.
+//                By user writing in a file and choosing word in the console and writing it in the file.
         }
+
     }
+
 
     private static void setupLanguage(Language language, String filePath) {
         try {
